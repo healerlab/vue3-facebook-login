@@ -68,8 +68,8 @@ import pkg from "@healerlab/vue3-facebook-login";
 const { HFaceBookLogin } = pkg
 
 const appState = reactive({
-  appId: "",
-  scope: "",
+  appId: "391069538168549",
+  scope: "id,email",
   authInfo: undefined
 })
 

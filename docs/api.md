@@ -82,11 +82,11 @@ const onFailure = () => {
   alert('Please check your appId and scope')
 }
 </script>
-<div>Enter app id, scope and click auth button:</div>
+<div>Enter app id, scope and click auth button bellow:</div>
 <input v-model="appState.appId" placeholder="app id" style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px;margin-bottom: 8px" /> <br />
 <input v-model="appState.scope" placeholder="id,name,email,first_name,last_name,birthday..." style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px" />
 
-<div style="margin-top: 12px">
+<div style="margin-top: 12px" v-if="appState.appId">
   <HFaceBookLogin
     v-slot="fbLogin"
     :app-id="appState.appId"

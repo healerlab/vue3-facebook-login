@@ -1,11 +1,4 @@
-# Vue 3 facebook login
-
-[![npm](https://img.shields.io/npm/v/@healerlab/vue3-facebook-login?style=flat-square)](https://www.npmjs.com/package/@healerlab/vue3-facebook-login)
-[![npm](https://img.shields.io/npm/dw/@healerlab/vue3-facebook-login?style=flat-square)](https://www.npmjs.com/package/@healerlab/vue3-facebook-login)
-[![GitHub](https://img.shields.io/github/license/healerlab/vue3-facebook-login?style=flat-square)](https://github.com/healerlab/vue3-facebook-login/blob/main/LICENSE)
-
-## Demo
-[Demo and docs](https://healerlab.github.io/vue3-facebook-login)
+# Getting Started
 
 ## Installation
 
@@ -15,24 +8,23 @@
 - Text Editor.
   - [VSCode](https://code.visualstudio.com/) is recommended, along with the [official Vue extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
 
-To get started, you can install `vue3-facebook-login` with:
+To get started, you can install it with:
 
-```bash
-npm i @healerlab/vue3-facebook-login
+::: code-group
+
+```sh [npm]
+$ npm i @healerlab/vue3-facebook-login
 ```
 
-with pnpm:
-
-```bash
-pnpm add @healerlab/vue3-facebook-login
+```sh [pnpm]
+$ pnpm add @healerlab/vue3-facebook-login
 ```
 
-with yarn:
-
-```bash
-yarn add @healerlab/vue3-facebook-login
+```sh [yarn]
+$ yarn add @healerlab/vue3-facebook-login
 ```
 
+:::
 
 
 ## Usage
@@ -66,8 +58,11 @@ Use the component in your template:
 </HFaceBookLogin>
 ```
 
-This is style for this example and not required, you can change and customize it to match your use-case:
+This is minimal style for your input, you can change it to match your use-case:
+
+
 ```scss
+<style scoped lang="scss">
 .fb-button {
   display: inline-block;
   margin: 10px 0 10 0;
@@ -77,6 +72,7 @@ This is style for this example and not required, you can change and customize it
   padding: 16px;
   cursor: pointer;
 }
+</style>
 ```
 
-See the [Vue3 FaceBook Login](https://healerlab.github.io/vue3-facebook-login) page for more information.
+In next section, you can explore more about props, event within this component

@@ -36,6 +36,8 @@ yarn add @healerlab/vue3-facebook-login
 
 
 ## Usage
+See the [FaceBook Graph API](https://developers.facebook.com/tools/explorer) for more information about scope.
+
 Import the component and register it locally in your Vue component:
 
 ```vue

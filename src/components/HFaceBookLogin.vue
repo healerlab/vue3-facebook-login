@@ -40,7 +40,7 @@ const logInWithFacebook = async () => {
       await initFacebook(props.appId, props.version);
       window.FB.login(function (response) {
         if (response.authResponse) {
-          window.FB.logout()
+          // window.FB.logout()
           return extractInfo(response)
         }
         return emits('onFailure')
@@ -76,7 +76,7 @@ const loadFacebookSDK = async (d, s, id) => {
   fjs.parentNode.insertBefore(js, fjs);
 }
 const getAuthInfo = async (accessToken) => {
-  const response = await axios.get(`https://graph.facebook.com/v17.0/me?fields=${props.scope}&access_token=${accessToken}`)
+  const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.scope}&access_token=${accessToken}`)
   return response?.data
 }
 

@@ -38,13 +38,26 @@ const logInWithFacebook = async () => {
     if (props.appId) {
       await loadFacebookSDK(document, "script", "facebook-jssdk");
       await initFacebook(props.appId, props.version);
-      window.FB.login(function (response) {
-        if (response.authResponse) {
-          window.FB.logout()
-          return extractInfo(response)
+
+      // Check the current login status
+      window.FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          // User is already connected
+          return extractInfo(response);
+        } else {
+          // User is not connected, trigger the login flow
+          window.FB.login(function(response) {
+            if (response.authResponse) {
+              // User successfully logged in
+              return extractInfo(response);
+            } else {
+              // Login failed
+              return emits('onFailure');
+            }
+          });
         }
-        return emits('onFailure')
       });
+
       return false;
     } else {
       return emits('onFailure', 'appId is required')
@@ -76,7 +89,7 @@ const loadFacebookSDK = async (d, s, id) => {
   fjs.parentNode.insertBefore(js, fjs);
 }
 const getAuthInfo = async (accessToken) => {
-  const response = await axios.get(`https://graph.facebook.com/v17.0/me?fields=${props.scope}&access_token=${accessToken}`)
+  const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.scope}&access_token=${accessToken}`)
   return response?.data
 }
 

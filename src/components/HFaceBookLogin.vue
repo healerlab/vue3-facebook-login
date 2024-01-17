@@ -43,16 +43,13 @@ const logInWithFacebook = async () => {
       window.FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
           // User is already connected
-          return extractInfo(response.authResponse);
-        } else if (response.status === 'unknown') {
-          // User's session has expired, log out
-          return window.FB.logout()
+          return extractInfo(response);
         } else {
           // User is not connected, trigger the login flow
           window.FB.login(function(response) {
             if (response.authResponse) {
               // User successfully logged in
-              return extractInfo(response.authResponse);
+              return extractInfo(response);
             } else {
               // Login failed
               return emits('onFailure');

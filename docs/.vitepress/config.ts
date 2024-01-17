@@ -19,7 +19,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Get Started', link: '/usage-examples' },
       {
-        text: '0.1.2',
+        text: '0.1.5',
         items: [
           {
             text: 'Changelog',

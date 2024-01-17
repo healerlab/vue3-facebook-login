@@ -1,7 +1,7 @@
 {
   "name": "@healerlab/vue3-facebook-login",
   "private": false,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Powerful, lightweight Facebook login component for Vue 3",
   "main": "./dist/h-facebook-login.umd.cjs",
   "module": "./dist/h-facebook-login.js",
@@ -57,7 +57,7 @@
     "url": "https://github.com/healerlab/vue3-facebook-login.git"
   },
   "dependencies": {
-    "@healerlab/vue3-facebook-login": "^0.1.4",
+    "@healerlab/vue3-facebook-login": "^0.1.5",
     "axios": "^1.6.2"
   }
 }

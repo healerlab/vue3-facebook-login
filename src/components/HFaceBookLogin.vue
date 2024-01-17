@@ -38,13 +38,29 @@ const logInWithFacebook = async () => {
     if (props.appId) {
       await loadFacebookSDK(document, "script", "facebook-jssdk");
       await initFacebook(props.appId, props.version);
-      window.FB.login(function (response) {
-        if (response.authResponse) {
-          // window.FB.logout()
-          return extractInfo(response)
+
+      // Check the current login status
+      window.FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          // User is already connected
+          return extractInfo(response.authResponse);
+        } else if (response.status === 'unknown') {
+          // User's session has expired, log out
+          return window.FB.logout()
+        } else {
+          // User is not connected, trigger the login flow
+          window.FB.login(function(response) {
+            if (response.authResponse) {
+              // User successfully logged in
+              return extractInfo(response.authResponse);
+            } else {
+              // Login failed
+              return emits('onFailure');
+            }
+          });
         }
-        return emits('onFailure')
       });
+
       return false;
     } else {
       return emits('onFailure', 'appId is required')

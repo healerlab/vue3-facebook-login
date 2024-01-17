@@ -66,6 +66,7 @@ const logInWithFacebook = async () => {
     return emits('onFailure')
   }
 }
+
 const initFacebook = async () => {
   window.fbAsyncInit = function () {
     window.FB.init({
@@ -77,6 +78,7 @@ const initFacebook = async () => {
     window.FB.AppEvents.logPageView();
   };
 }
+
 const loadFacebookSDK = async (d, s, id) => {
   var js,
     fjs = d.getElementsByTagName(s)[0];
@@ -88,6 +90,7 @@ const loadFacebookSDK = async (d, s, id) => {
   js.src = "https://connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }
+
 const getAuthInfo = async (accessToken) => {
   const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.scope}&access_token=${accessToken}`)
   return response?.data

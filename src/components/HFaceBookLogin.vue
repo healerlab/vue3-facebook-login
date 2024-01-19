@@ -19,6 +19,10 @@ const props = defineProps({
   scope: {
     type: String,
     default: ''
+  },
+  fields: {
+    type: String,
+    default: ''
   }
 })
 
@@ -92,14 +96,14 @@ const loadFacebookSDK = async (d, s, id) => {
 }
 
 const getAuthInfo = async (accessToken) => {
-  const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.scope}&access_token=${accessToken}`)
+  const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.fields}&access_token=${accessToken}`)
   return response?.data
 }
 
 const extractInfo = async (response) => {
-  if (props.scope) {
+  if (props.fields) {
     let authInfo = {}
-    if (props.scope) {
+    if (props.fields) {
       authInfo = await getAuthInfo(response.authResponse.accessToken)
     }
     return emits('onSuccess', {...response, authInfo})

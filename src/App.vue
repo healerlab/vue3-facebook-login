@@ -3,8 +3,9 @@
     <HFaceBookLogin 
       v-slot="fbLogin" 
       app-id="xyz" 
-      @onSuccess="onSuccess" 
-      scope="id,name,email,first_name,last_name,birthday"
+      @onSuccess="onSuccess"
+      scope="email,public_profile"
+      fields="id,name,email,first_name,last_name,birthday"
       @onFailure="onFailure"
     >
       <span @click="fbLogin.initFBLogin" class="fb-button">Login with facebook</span>

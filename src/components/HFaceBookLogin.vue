@@ -54,7 +54,7 @@ const logInWithFacebook = async () => {
               // Login failed
               return emits('onFailure');
             }
-          });
+          }, {scope: props.scope});
         }
       });
 

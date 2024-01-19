@@ -12,14 +12,15 @@ This page demonstrates usage of props and events provided by HFaceBookLogin.
 | --- | --- | --- | --- |
 | appId | `String` | `null` | Your Facebook login appId. |
 | version | `String` | `v18.0` | Facebook SDK version, default it latest version provide from Facebook |
-| scope | `String` | `null` | Auth info you want to retrieve after authenticating from login popup |
+| scope | `String` | `null` | Read more about permission you want user share for your app https://developers.facebook.com/docs/permissions/ |
+| fields | `String` | `null` | Auth info you want to retrieve after authenticating from login popup |
 | onSuccess | `Function` | `null` | Callback that emit auth response after login popup close (response) |
 | onFailure | `Function` | `null` | Callback that show error after login popup close |
 
 ### Please note that, you can only get your item within scope if your FB login app is granted access from facebook
 
 *(response): 
-- if you have not define scope, this is response format:
+- if you have not define fields, this is response format:
 ```
 
 {
@@ -35,7 +36,7 @@ This page demonstrates usage of props and events provided by HFaceBookLogin.
 }
 ```
 
-- if you have define scope, this is response format:
+- if you have define fields, this is response format:
 
 ```
 {
@@ -69,7 +70,8 @@ const { HFaceBookLogin } = pkg
 
 const appState = reactive({
   appId: "391069538168549",
-  scope: "id,email",
+  scope: "email,public_profile",
+  fields: "id,email"
   authInfo: undefined
 })
 
@@ -82,15 +84,17 @@ const onFailure = () => {
   alert('Please check your appId and scope')
 }
 </script>
-<div>Enter app id, scope and click auth button bellow:</div>
+<div>Enter app id, scope, fields and click auth button bellow:</div>
 <input v-model="appState.appId" placeholder="app id" style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px;margin-bottom: 8px" /> <br />
-<input v-model="appState.scope" placeholder="id,name,email,first_name,last_name,birthday..." style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px" />
+<input v-model="appState.fields" placeholder="id,name,email,first_name,last_name,birthday..." style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px" />
+<input v-model="appState.scope" placeholder="email,public_profile" style="width: 400px;border: 1px solid #4caf50;padding: 5px;border-radius: 5px" />
 
 <div style="margin-top: 12px" v-if="appState.appId">
   <HFaceBookLogin
     v-slot="fbLogin"
     :app-id="appState.appId"
     :scope="appState.scope"
+    :fields="appState.fields"
     @onSuccess="onSuccess"
     @onFailure="onFailure"
   >

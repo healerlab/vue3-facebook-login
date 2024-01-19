@@ -62,7 +62,8 @@ Use the component in your template:
   app-id="391069538168549" 
   @onSuccess="onSuccess" 
   @onFailure="onFailure"
-  scope="id,name,email,first_name,last_name,birthday"
+  scope="email,public_profile"
+  fields="id,name,email,first_name,last_name,birthday"
 >
   <span @click="fbLogin.initFBLogin" class="fb-button">Login with facebook</span>
 </HFaceBookLogin>

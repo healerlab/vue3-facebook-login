@@ -271,11 +271,12 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz"
   integrity sha512-kTdfRcSiDfQca/y9QIkng02avJ+NCaQvrMejlsB3RRv5sE9rRoeBPISaZpKxHELzRxZyLvNts1P27W3wV+8geQ==
 
-"@healerlab/vue3-facebook-login@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@healerlab/vue3-facebook-login/-/vue3-facebook-login-0.1.4.tgz#d76c37ca3e6dcea96a7639415b8039636ab56965"
-  integrity sha512-s1Nvvnd3BwK4tyrPxRBQGoUWKUltA3lj4oLpGgCaDTQ7Qk/uojkiArA4eZGnNMUfZXmAthdTKSNAsPYYrE2sHw==
+"@healerlab/vue3-facebook-login@^0.1.5", "@healerlab/vue3-facebook-login@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@healerlab/vue3-facebook-login/-/vue3-facebook-login-0.1.6.tgz#2d5aa7f4923ade9c7cd9ed6d44fdf056aaff8f1d"
+  integrity sha512-ck2A6TXiuRsd8Ivvfj+bRPw2+WXLATNnfM/gOaLL/tS6pJOnd3sf6IJMd63YYivXOlVguLF9gynLyvdekjNidQ==
   dependencies:
+    "@healerlab/vue3-facebook-login" "^0.1.5"
     axios "^1.6.2"
 
 "@jridgewell/sourcemap-codec@^1.4.15":

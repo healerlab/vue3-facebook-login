@@ -71,7 +71,7 @@ const { HFaceBookLogin } = pkg
 const appState = reactive({
   appId: "391069538168549",
   scope: "email,public_profile",
-  fields: "id,email"
+  fields: "id,email",
   authInfo: undefined
 })
 

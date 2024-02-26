@@ -96,7 +96,7 @@ const loadFacebookSDK = async (d, s, id) => {
 }
 
 const getAuthInfo = async (accessToken) => {
-  const response = await axios.get(`https://graph.facebook.com/v18.0/me?fields=${props.fields}&access_token=${accessToken}`)
+  const response = await axios.get(`https://graph.facebook.com/${props.version}/me?fields=${props.fields}&access_token=${accessToken}`)
   return response?.data
 }
 
